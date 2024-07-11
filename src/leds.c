@@ -1,7 +1,7 @@
 /************************************************************************************************
 Copyright 2024, Testing de Software en Sistemas Embebidos
 Facultad de Ingenieria
-Universidad Nacional de Buenos Aires
+Universidad de Buenos Aires
 
 Copyright (c) 2023, Martin Paura Bersan <mpb39212@gmail.comr>
 
@@ -47,23 +47,25 @@ static uint16_t * puerto_virtual;
 
 /* === Public function implementation ========================================================== */
 
-void leds_init(uint16_t *puerto){
+void leds_init(uint16_t * puerto) {
     puerto_virtual = puerto;
-    *puerto_virtual = 0; //Mínimo código posible para resolver el problema actual
+    *puerto_virtual = 0; // Mínimo código posible para resolver el problema actual
 }
 
-void led_turn_on(int led){              //Si la prueba la hago para un led detarminado podria llamar la fucnion led_turn_on_3(void) y 
-                                        //que la misma no tenga parámetros.
-    *puerto_virtual |= 0x0004;          //(1 << (led-1));  //Inicialmente se tiene que hacer hardcodeado y a medida que vamos pasando
-                                        //los requerimientos se va complicando, por eso es importante ir realizando
-                                        //las pruebas en orden de complejidad de los requerimientos (primero los mas sensillos)        
+void led_turn_on(int led) { // Si la prueba la hago para un led detarminado podria llamar la fucnion
+                            // led_turn_on_3(void) y que la misma no tenga parámetros.
+    *puerto_virtual |= 0x0004; //(1 << (led-1));  //Inicialmente se tiene que hacer hardcodeado y a
+                               //medida que vamos pasando los requerimientos se va complicando, por
+                               // eso es importante ir realizando las pruebas en orden de
+                               // complejidad de los requerimientos (primero los mas sensillos)
 }
 
-void led_turn_off(int led){             
+void led_turn_off(int led) {
 
-    *puerto_virtual &= ~(0x0004);          //(1 << (led-1));  //Inicialmente se tiene que hacer hardcodeado y a medida que vamos pasando
-                                        //los requerimientos se va complicando, por eso es importante ir realizando
-                                        //las pruebas en orden de complejidad de los requerimientos (primero los mas sensillos)        
+    *puerto_virtual &= ~(0x0004); //(1 << (led-1));  //Inicialmente se tiene que hacer hardcodeado y
+                                  //a medida que vamos pasando los requerimientos se va complicando,
+                                  // por eso es importante ir realizando las pruebas en orden de
+                                  // complejidad de los requerimientos (primero los mas sensillos)
 }
 
 /* === End of documentation ==================================================================== */

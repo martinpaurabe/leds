@@ -1,7 +1,7 @@
 /************************************************************************************************
 Copyright 2024, Ingenieria de Software
 Facultad de Ingenieria
-Universidad Nacional de Buenos Aires
+Universidad de Buenos Aires
 
 Copyright (c) 2023, Martin Paura Bersan <mpb39212@gmail.comr>
 

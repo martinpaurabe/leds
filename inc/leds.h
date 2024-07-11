@@ -1,7 +1,7 @@
 /************************************************************************************************
 Copyright 2024, Ingenieria de Software
 Facultad de Ingenieria
-Universidad Nacional de Buenos Aires
+Universidad de Buenos Aires
 
 Copyright (c) 2023, Martin Paura Bersan <mpb39212@gmail.comr>
 
@@ -31,7 +31,7 @@ SPDX-License-Identifier: MIT
  **/
 
 /* === Headers files inclusions ================================================================ */
-#include <stdint.h>  //La incluyo en el ".h" porque la declaracion de las funciones lo necesita
+#include <stdint.h> //La incluyo en el ".h" porque la declaracion de las funciones lo necesita
 
 /* === Cabecera C++ ============================================================================ */
 
@@ -49,21 +49,21 @@ extern "C" {
 
 /**
  * @brief Funcion de inicializacion de los leds. Los inicializa todos apagados
- * 
+ *
  * @param puerto Puntero a la direccion donde se manejan los pines de los leds
  */
-void leds_init(uint16_t *puerto);
+void leds_init(uint16_t * puerto);
 
 /**
  * @brief Funcion que recibe el numero de led que tiene que encender del puerto
- * 
+ *
  * @param led Número de Led a apagar, contando de 1 (LSB) a 16 (MSB)
  */
 void led_turn_on(int led);
 
 /**
  * @brief Funcion que apaga un led determinado del puerto
- * 
+ *
  * @param led Número de Led a apagar, contando de 1 (LSB) a 16 (MSB)
  */
 void led_turn_on(int led);

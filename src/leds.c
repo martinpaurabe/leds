@@ -23,25 +23,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 SPDX-License-Identifier: MIT
 *************************************************************************************************/
 
-/************************************************************************************************
-- Despues de arrancar el sistema, con todos los leds apagados, voy a prender un led cualquiera.
-- Voy a prender un led y volver a apagarlo para ver si se apaga.
-- Prender dos leds, apagar uno, y ver que solo se apaga el que corresponde y que el otro sigue prendido.
-- Predner todos los leds juntos.
-- Prender y apagar todos los leds juntos.
-- Prender un led, voy a consultar el estado y tiene que figurar como prendido
-- Voy a consultar el estado de un led apagado y tiene que figurar como apagado.
-- Revisar que los leds estan bien mapeados en la memoria.
-*************************************************************************************************/
-
-
-
-/** @file test_led.c
- ** @brief Definicion de las funciones de prueba del proyecto
+/** @file leds.c
+ ** @brief Definicion de las funciones para el manejo de los leds
  **/
 
 /* === Headers files inclusions =============================================================== */
-#include "unity.h"
 #include "leds.h"
 
 /* === Macros definitions ====================================================================== */
@@ -60,17 +46,8 @@ SPDX-License-Identifier: MIT
 
 /* === Public function implementation ========================================================== */
 
-
-//Al arrancar el sistema todos los leds tienen que estar apagados.
-/**
- * @brief Funcion para testear el funcionamiento del driver de los leds en el arranque
- * 
- */
-void test_todos_los_leds_deben_arrancar_apagados(void) {
-    uint16_t puerto_virtual = 0xFFFF; //la inicializo en 0xFFFF para poder verificar que apaga todos los leds
-
-    leds_init(&puerto_virtual);
-    TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);  //Verifico que haya dejado el puerto en 0x0000
+void leds_init(uint16_t *puerto){
+    *puerto = 0; //Mínimo código posible para resolver el problema actual
 }
 
 /* === End of documentation ==================================================================== */

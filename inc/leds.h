@@ -66,7 +66,7 @@ void led_turn_on(int led);
  *
  * @param led Número de Led a apagar, contando de 1 (LSB) a 16 (MSB)
  */
-void led_turn_on(int led);
+void led_turn_off(int led);
 
 /* === End of documentation ==================================================================== */
 

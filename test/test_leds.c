@@ -24,15 +24,12 @@ SPDX-License-Identifier: MIT
 *************************************************************************************************/
 
 /************************************************************************************************
-- Prender dos leds, apagar uno, y ver que solo se apaga el que corresponde y que el otro sigue prendido.
 - Prender todos los leds juntos.
 - Prender y apagar todos los leds juntos.
 - Prender un led, voy a consultar el estado y tiene que figurar como prendido
 - Voy a consultar el estado de un led apagado y tiene que figurar como apagado.
 - Revisar que los leds estan bien mapeados en la memoria.
 *************************************************************************************************/
-
-
 
 /** @file test_led.c
  ** @brief Definicion de las funciones de prueba del proyecto
@@ -47,7 +44,7 @@ SPDX-License-Identifier: MIT
 /* === Private data type declarations ========================================================== */
 
 /* === Private variable declarations =========================================================== */
-
+uint16_t puerto_virtual;
 /* === Private function declarations =========================================================== */
 
 /* === Public variable definitions ============================================================= */
@@ -58,43 +55,79 @@ SPDX-License-Identifier: MIT
 
 /* === Public function implementation ========================================================== */
 
+/**
+ * @brief Funcion que se ejecuta antes de todas las pruebas (Una Sola vez)
+ *
+ */
+void suitsetUp(void) {
+}
 
-//Al arrancar el sistema todos los leds tienen que estar apagados.
+/**
+ * @brief Funcion que se ejecuta antes de cada prueba
+ *
+ */
+void setUp(void) {
+    leds_init(&puerto_virtual);
+}
+
+/**
+ * @brief Funcion que se ejecuta despues de cada una de las pruebas
+ *
+ */
+void tearDown(void) {
+}
+
+// Al arrancar el sistema todos los leds tienen que estar apagados.
 /**
  * @brief Funcion para testear el funcionamiento del driver de los leds en el arranque
- * 
+ *
  */
 void test_todos_los_leds_deben_arrancar_apagados(void) {
-    uint16_t puerto_virtual = 0xFFFF; //la inicializo en 0xFFFF para poder verificar que apaga todos los leds
+    uint16_t puerto_virtual =
+        0xFFFF; // la inicializo en 0xFFFF para poder verificar que apaga todos los leds
 
     leds_init(&puerto_virtual);
-    TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);  //Verifico que haya dejado el puerto en 0x0000
+    TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual); // Verifico que haya dejado el puerto en 0x0000
 }
 
-//Despues de arrancar el sistema, con todos los leds apagados, voy a prender un led cualquiera.
+// Despues de arrancar el sistema, con todos los leds apagados, voy a prender un led cualquiera.
 /**
- * @brief 
- * 
+ * @brief
+ *
  */
-void test_prender_un_solo_led(void){
-    uint16_t puerto_virtual = 0xFFFF; //la inicializo en 0x0000 para poder verificar que apaga todos los leds 
- 
-    leds_init(&puerto_virtual); //todas las pruebas tienen que arrancar desde el sistema en estado reset y llevarla al estado de prueba
-    led_turn_on(3);            //Cuando diseño las pruebas trato de no pensar en como se van a implementar las funciones
-    TEST_ASSERT_EQUAL_HEX16(1 << 2, puerto_virtual);  //recordar que el bit inicializa contando desde 1 por eso el shift es por 2
+void test_prender_un_solo_led(void) {
+
+    // todas las pruebas tienen que arrancar desde el sistema en estado reset y llevarla al estado
+    // de prueba (SE ENCARGA SetUP)
+    led_turn_on(3); // Cuando diseño las pruebas trato de no pensar en como se van a implementar las
+                    // funciones
+    TEST_ASSERT_EQUAL_HEX16(1 << 2, puerto_virtual); // recordar que el bit inicializa contando
+                                                     // desde 1 por eso el shift es por 2
 }
 
-//Voy a prender un led y volver a apagarlo para ver si se apaga.
-void test_prender_y_apagar_led(void){
+// Voy a prender un led y volver a apagarlo para ver si se apaga.
+void test_prender_y_apagar_led(void) {
 
-    uint16_t puerto_virtual = 0xFFFF; //la inicializo en 0x0000 para poder verificar que apaga todos los leds 
- 
-    leds_init(&puerto_virtual); //todas las pruebas tienen que arrancar desde el sistema en estado reset y llevarla al estado de prueba
-    led_turn_on(3);            //Cuando diseño las pruebas trato de no pensar en como se van a implementar las funciones
-    TEST_ASSERT_EQUAL_HEX16(1 << 2, puerto_virtual);  //recordar que el bit inicializa contando desde 1 por eso el shift es por 2
-    led_turn_off(3);            //Envio a apagar el Led
-    TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);  //Verifico que el led se apagó
+    // todas las pruebas tienen que arrancar desde el sistema en estado reset y llevarla al estado
+    // de prueba (SE ENCARGA SetUP)
+    led_turn_on(
+        3); // Cuando diseño las pruebas trato de no pensar en como se van a implementar las
+            // funciones recordar que el bit inicializa contando desde 1 por eso el shift es por 2
+    led_turn_off(3);                                 // Envio a apagar el Led
+    TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual); // Verifico que el led se apagó
+}
 
+// Prender dos leds, apagar uno, y ver que solo se apaga el que corresponde y que el otro sigue
+// prendido.
+
+void test_prender_dos_leds_y_apagar_un_solo_led(void) {
+
+    // todas las pruebas tienen que arrancar desde el sistema en estado reset y llevarla al estado
+    // de prueba (SE ENCARGA SetUP)
+    led_turn_on(3);
+    led_turn_on(7);
+    led_turn_off(3);                                 // Envio a apagar el Led
+    TEST_ASSERT_EQUAL_HEX16(1 << 6, puerto_virtual); // Verifico que el led se apagó
 }
 
 /* === End of documentation ==================================================================== */

@@ -54,6 +54,13 @@ extern "C" {
  */
 void leds_init(uint16_t *puerto);
 
+/**
+ * @brief Funcion que recibe el numero de led que tiene que encender del puerto
+ * 
+ * @param led 
+ */
+void led_turn_on(int led);
+
 /* === End of documentation ==================================================================== */
 
 #ifdef __cplusplus

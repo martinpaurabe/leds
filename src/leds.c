@@ -35,6 +35,7 @@ SPDX-License-Identifier: MIT
 /* === Private data type declarations ========================================================== */
 
 /* === Private variable declarations =========================================================== */
+static uint16_t * puerto_virtual;
 
 /* === Private function declarations =========================================================== */
 
@@ -47,7 +48,15 @@ SPDX-License-Identifier: MIT
 /* === Public function implementation ========================================================== */
 
 void leds_init(uint16_t *puerto){
-    *puerto = 0; //Mínimo código posible para resolver el problema actual
+    puerto_virtual = puerto;
+    *puerto_virtual = 0; //Mínimo código posible para resolver el problema actual
+}
+
+void led_turn_on(int led){
+
+    *puerto_virtual |= 0x0004;          //(1 << (led-1));  //Inicialmente se tiene que hacer hardcodeado y a medida que vamos pasando
+                                        //los requerimientos se va complicando, por eso es importante ir realizando
+                                        //las pruebas en orden de complejidad de los requerimientos (primero los mas sensillos)        
 }
 
 /* === End of documentation ==================================================================== */

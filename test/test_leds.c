@@ -24,10 +24,9 @@ SPDX-License-Identifier: MIT
 *************************************************************************************************/
 
 /************************************************************************************************
-- Despues de arrancar el sistema, con todos los leds apagados, voy a prender un led cualquiera.
 - Voy a prender un led y volver a apagarlo para ver si se apaga.
 - Prender dos leds, apagar uno, y ver que solo se apaga el que corresponde y que el otro sigue prendido.
-- Predner todos los leds juntos.
+- Prender todos los leds juntos.
 - Prender y apagar todos los leds juntos.
 - Prender un led, voy a consultar el estado y tiene que figurar como prendido
 - Voy a consultar el estado de un led apagado y tiene que figurar como apagado.
@@ -72,5 +71,20 @@ void test_todos_los_leds_deben_arrancar_apagados(void) {
     leds_init(&puerto_virtual);
     TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);  //Verifico que haya dejado el puerto en 0x0000
 }
+
+//Despues de arrancar el sistema, con todos los leds apagados, voy a prender un led cualquiera.
+/**
+ * @brief 
+ * 
+ */
+void test_prender_un_solo_led(void){
+    uint16_t puerto_virtual = 0xFFFF; //la inicializo en 0x0000 para poder verificar que apaga todos los leds 
+ 
+    leds_init(&puerto_virtual); //todas las pruebas tienen que arrancar desde el sistema en estado reset y llevarla al estado de prueba
+    led_turn_on(3);            //Cuando diseño las pruebas trato de no pensar en como se van a implementar las funciones
+    TEST_ASSERT_EQUAL_HEX16(1 << 2, puerto_virtual);  //recordar que el bit inicializa contando desde 1 por eso el shift es por 2
+}
+
+
 
 /* === End of documentation ==================================================================== */

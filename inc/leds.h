@@ -57,7 +57,14 @@ void leds_init(uint16_t *puerto);
 /**
  * @brief Funcion que recibe el numero de led que tiene que encender del puerto
  * 
- * @param led 
+ * @param led Número de Led a apagar, contando de 1 (LSB) a 16 (MSB)
+ */
+void led_turn_on(int led);
+
+/**
+ * @brief Funcion que apaga un led determinado del puerto
+ * 
+ * @param led Número de Led a apagar, contando de 1 (LSB) a 16 (MSB)
  */
 void led_turn_on(int led);
 

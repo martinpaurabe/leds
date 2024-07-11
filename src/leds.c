@@ -52,9 +52,16 @@ void leds_init(uint16_t *puerto){
     *puerto_virtual = 0; //Mínimo código posible para resolver el problema actual
 }
 
-void led_turn_on(int led){
-
+void led_turn_on(int led){              //Si la prueba la hago para un led detarminado podria llamar la fucnion led_turn_on_3(void) y 
+                                        //que la misma no tenga parámetros.
     *puerto_virtual |= 0x0004;          //(1 << (led-1));  //Inicialmente se tiene que hacer hardcodeado y a medida que vamos pasando
+                                        //los requerimientos se va complicando, por eso es importante ir realizando
+                                        //las pruebas en orden de complejidad de los requerimientos (primero los mas sensillos)        
+}
+
+void led_turn_off(int led){             
+
+    *puerto_virtual &= ~(0x0004);          //(1 << (led-1));  //Inicialmente se tiene que hacer hardcodeado y a medida que vamos pasando
                                         //los requerimientos se va complicando, por eso es importante ir realizando
                                         //las pruebas en orden de complejidad de los requerimientos (primero los mas sensillos)        
 }

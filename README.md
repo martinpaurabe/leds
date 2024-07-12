@@ -1,4 +1,4 @@
-# Trabajo Práctico Número 4
+# Trabajo Práctico Número 2
 
 ## Uso del repositorio
 
@@ -19,6 +19,12 @@ make doc
 
 ```
 
+Para visualizar la documentación generada del proyecto se utiliza el siguiente comando:
+
+```
+open build/doc/html/index.html
+
+```
 Para compilar el proyecto se utiliza el siguiente comando:
 
 ```
@@ -26,6 +32,21 @@ make all
 
 ```
 
+Para correr las pruebas del proyecto se utiliza el siguiente comando:
+
+Para generar el proyecto de ceedling:
+
+```
+ceedling new . 
+
+```
+
+Para ejecutar las pruebas diseñadas en test_leds.c:
+
+```
+ceedling        
+
+```
 ## License
 
 This work is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.

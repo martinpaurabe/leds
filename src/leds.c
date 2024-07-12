@@ -34,6 +34,7 @@ SPDX-License-Identifier: MIT
 #define LED_OFFSET   1
 #define FIRST_BIT    1
 #define ALL_LEDS_OFF 0x0000
+#define ALL_LEDS_ON  0xFFFF
 
 /* === Private data type declarations ========================================================== */
 
@@ -73,6 +74,14 @@ void led_turn_off(int led) {
                            // a medida que vamos pasando los requerimientos se va complicando,
                            //  por eso es importante ir realizando las pruebas en orden de
                            //  complejidad de los requerimientos (primero los mas sensillos)
+}
+
+void leds_turn_on_all(void) {
+    *puerto_virtual = ALL_LEDS_ON; // Mínimo código posible para resolver el problema actual
+}
+
+void leds_turn_off_all(void) {
+    *puerto_virtual = ALL_LEDS_OFF; // Mínimo código posible para resolver el problema actual
 }
 
 /* === End of documentation ==================================================================== */

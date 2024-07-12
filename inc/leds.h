@@ -68,6 +68,18 @@ void led_turn_on(int led);
  */
 void led_turn_off(int led);
 
+/**
+ * @brief Funcion que enciende todos los leds del puerto
+ *
+ */
+void leds_turn_on_all(void);
+
+/**
+ * @brief Funcion que apaga todos los leds del puerto
+ *
+ */
+void leds_turn_off_all(void);
+
 /* === End of documentation ==================================================================== */
 
 #ifdef __cplusplus

@@ -27,7 +27,7 @@ SPDX-License-Identifier: MIT
 #define LEDS_H
 
 /** @file leds.h
- ** @brief Definición de las fucniones para el manejo del puerto con los leds
+ ** @brief Declaración de las funciones para el manejo del puerto con los leds
  **/
 
 /* === Headers files inclusions ================================================================ */
@@ -41,6 +41,11 @@ extern "C" {
 #endif
 
 /* === Public macros definitions =============================================================== */
+#define CANT_LEDS    16
+#define LED_OFFSET   1
+#define FIRST_BIT    0x0001
+#define ALL_LEDS_OFF 0x0000
+#define ALL_LEDS_ON  0xFFFF
 
 /* === Public data type declarations =========================================================== */
 

@@ -161,9 +161,14 @@ void test_apagar_un_led_y_verificar_estado(void) {
     TEST_ASSERT_FALSE(led_is_turned_on(3));
 }
 
-// Revisar que los leds estan bien mapeados en la memoria.
+// Revisar que cada led esté bien mapeados en la memoria.
 void test_revisar_leds_correctamente_mapeado_en_memoria(void) {
-    TEST_ASSERT_FALSE(led_is_turned_on(3));
+    int i = 1;
+    for (; i < CANT_LEDS; i++) {
+        led_turn_on(i);
+        TEST_ASSERT_EQUAL_HEX16(FIRST_BIT << (i - LED_OFFSET), puerto_virtual);
+        led_turn_off(i);
+    }
 }
 
 /* === End of documentation ==================================================================== */

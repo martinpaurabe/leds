@@ -31,10 +31,6 @@ SPDX-License-Identifier: MIT
 #include "leds.h"
 
 /* === Macros definitions ====================================================================== */
-#define LED_OFFSET   1
-#define FIRST_BIT    1
-#define ALL_LEDS_OFF 0x0000
-#define ALL_LEDS_ON  0xFFFF
 
 /* === Private data type declarations ========================================================== */
 

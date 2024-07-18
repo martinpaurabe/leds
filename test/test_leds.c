@@ -1,7 +1,7 @@
 /************************************************************************************************
 Copyright 2024, Testing de Software en Sistemas Embebidos
 Facultad de Ingenieria
-Universidad Nacional de Buenos Aires
+Universidad de Buenos Aires
 
 Copyright (c) 2023, Martin Paura Bersan <mpb39212@gmail.comr>
 
@@ -24,9 +24,6 @@ SPDX-License-Identifier: MIT
 *************************************************************************************************/
 
 /************************************************************************************************
-- Prender un led, voy a consultar el estado y tiene que figurar como prendido
-- Voy a consultar el estado de un led apagado y tiene que figurar como apagado.
-- Revisar que los leds estan bien mapeados en la memoria.
 *************************************************************************************************/
 
 /** @file test_led.c
@@ -54,14 +51,14 @@ uint16_t puerto_virtual;
 /* === Public function implementation ========================================================== */
 
 /**
- * @brief Funcion que se ejecuta antes de todas las pruebas (Una Sola vez)
+ * @brief Función que se ejecuta antes de todas las pruebas (Una Sola vez)
  *
  */
 void suitsetUp(void) {
 }
 
 /**
- * @brief Funcion que se ejecuta antes de cada prueba
+ * @brief Función que se ejecuta antes de cada prueba
  *
  */
 void setUp(void) {
@@ -69,10 +66,17 @@ void setUp(void) {
 }
 
 /**
- * @brief Funcion que se ejecuta despues de cada una de las pruebas
+ * @brief Función que se ejecuta despues de cada una de las pruebas
  *
  */
 void tearDown(void) {
+}
+
+/**
+ * @brief Función que se ejecuta al final todas las pruebas (Una sola vez)
+ *
+ */
+void suittearDown(void) {
 }
 
 // Al arrancar el sistema todos los leds tienen que estar apagados.
@@ -144,6 +148,22 @@ void test_prender_y_apagar_todos_los_leds_juntos(void) {
     leds_turn_on_all();
     leds_turn_off_all();
     TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);
+}
+
+// Prender un led, voy a consultar el estado y tiene que figurar como prendido
+void test_prender_un_led_y_verificar_estado(void) {
+    led_turn_on(3);
+    TEST_ASSERT_TRUE(led_is_turned_on(3));
+}
+
+// Voy a consultar el estado de un led apagado y tiene que figurar como apagado.
+void test_apagar_un_led_y_verificar_estado(void) {
+    TEST_ASSERT_FALSE(led_is_turned_on(3));
+}
+
+// Revisar que los leds estan bien mapeados en la memoria.
+void test_revisar_leds_correctamente_mapeado_en_memoria(void) {
+    TEST_ASSERT_FALSE(led_is_turned_on(3));
 }
 
 /* === End of documentation ==================================================================== */

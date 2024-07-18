@@ -84,4 +84,8 @@ void leds_turn_off_all(void) {
     *puerto_virtual = ALL_LEDS_OFF; // Mínimo código posible para resolver el problema actual
 }
 
+bool led_is_turned_on(int led) {
+    return (led_to_mask(led) & *puerto_virtual) ? true : false;
+}
+
 /* === End of documentation ==================================================================== */

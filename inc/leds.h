@@ -32,6 +32,7 @@ SPDX-License-Identifier: MIT
 
 /* === Headers files inclusions ================================================================ */
 #include <stdint.h> //La incluyo en el ".h" porque la declaracion de las funciones lo necesita
+#include <stdbool.h>
 
 /* === Cabecera C++ ============================================================================ */
 
@@ -79,6 +80,15 @@ void leds_turn_on_all(void);
  *
  */
 void leds_turn_off_all(void);
+
+/**
+ * @brief Funcion que verfica si un led determinado del arreglo está encendido
+ *
+ * @param led Número de led que queremos verificar el estado
+ * @return true Si el led consultado se encuentra encendido
+ * @return false Si el ledo consultado se encuentra apagdo
+ */
+bool led_is_turned_on(int led);
 
 /* === End of documentation ==================================================================== */
 

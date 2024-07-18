@@ -23,9 +23,6 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 SPDX-License-Identifier: MIT
 *************************************************************************************************/
 
-/************************************************************************************************
-*************************************************************************************************/
-
 /** @file test_led.c
  ** @brief Definicion de las funciones de prueba del proyecto
  **/
@@ -81,7 +78,7 @@ void suittearDown(void) {
 
 // Al arrancar el sistema todos los leds tienen que estar apagados.
 /**
- * @brief Funcion para testear el funcionamiento del driver de los leds en el arranque
+ * @brief Test 1 = Funcion para testear el funcionamiento del driver de los leds en el arranque
  *
  */
 void test_todos_los_leds_deben_arrancar_apagados(void) {
@@ -92,9 +89,9 @@ void test_todos_los_leds_deben_arrancar_apagados(void) {
     TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual); // Verifico que haya dejado el puerto en 0x0000
 }
 
-// Despues de arrancar el sistema, con todos los leds apagados, voy a prender un led cualquiera.
 /**
- * @brief
+ * @brief Test 2 = Despues de arrancar el sistema, con todos los leds apagados, voy a prender un led
+ * cualquiera.
  *
  */
 void test_prender_un_solo_led(void) {
@@ -107,7 +104,10 @@ void test_prender_un_solo_led(void) {
                                                      // desde 1 por eso el shift es por 2
 }
 
-// Voy a prender un led y volver a apagarlo para ver si se apaga.
+/**
+ * @brief Test 3 = Voy a prender un led y volver a apagarlo para ver si se apaga.
+ *
+ */
 void test_prender_y_apagar_led(void) {
 
     // todas las pruebas tienen que arrancar desde el sistema en estado reset y llevarla al estado
@@ -119,9 +119,11 @@ void test_prender_y_apagar_led(void) {
     TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual); // Verifico que el led se apagó
 }
 
-// Prender dos leds, apagar uno, y ver que solo se apaga el que corresponde y que el otro sigue
-// prendido.
-
+/**
+ * @brief Test 4 = Prender dos leds, apagar uno, y ver que solo se apaga el que corresponde y que el
+ * otro sigue prendido.
+ *
+ */
 void test_prender_dos_leds_y_apagar_un_solo_led(void) {
 
     // todas las pruebas tienen que arrancar desde el sistema en estado reset y llevarla al estado
@@ -132,9 +134,8 @@ void test_prender_dos_leds_y_apagar_un_solo_led(void) {
     TEST_ASSERT_EQUAL_HEX16(1 << 6, puerto_virtual); // Verifico que el led se apagó
 }
 
-// Prender todos los leds juntos.
 /**
- * @brief
+ * @brief Test 5 = Prender todos los leds juntos.
  *
  */
 void test_prender_todos_los_leds_juntos(void) {
@@ -142,7 +143,11 @@ void test_prender_todos_los_leds_juntos(void) {
     TEST_ASSERT_EQUAL_HEX16(0xFFFF, puerto_virtual);
 }
 
-// Prender y apagar todos los leds juntos.
+/**
+ * @brief Test 6 = Prender y apagar todos los leds juntos.
+ *
+ */
+
 void test_prender_y_apagar_todos_los_leds_juntos(void) {
 
     leds_turn_on_all();
@@ -150,18 +155,27 @@ void test_prender_y_apagar_todos_los_leds_juntos(void) {
     TEST_ASSERT_EQUAL_HEX16(0x0000, puerto_virtual);
 }
 
-// Prender un led, voy a consultar el estado y tiene que figurar como prendido
+/**
+ * @brief Test 7 = Prender un led, voy a consultar el estado y tiene que figurar como prendido
+ *
+ */
 void test_prender_un_led_y_verificar_estado(void) {
     led_turn_on(3);
     TEST_ASSERT_TRUE(led_is_turned_on(3));
 }
 
-// Voy a consultar el estado de un led apagado y tiene que figurar como apagado.
+/**
+ * @brief Test 8 = Voy a consultar el estado de un led apagado y tiene que figurar como apagado.
+ *
+ */
 void test_apagar_un_led_y_verificar_estado(void) {
     TEST_ASSERT_FALSE(led_is_turned_on(3));
 }
 
-// Revisar que cada led esté bien mapeados en la memoria.
+/**
+ * @brief Test 9 = Revisar que cada led esté bien mapeados en la memoria.
+ *
+ */
 void test_revisar_leds_correctamente_mapeado_en_memoria(void) {
     int i = 1;
     for (; i < CANT_LEDS; i++) {

@@ -178,7 +178,7 @@ void test_apagar_un_led_y_verificar_estado(void) {
  */
 void test_revisar_leds_correctamente_mapeado_en_memoria(void) {
     int i = 1;
-    for (; i < CANT_LEDS; i++) {
+    for (; i <= CANT_LEDS; i++) {
         led_turn_on(i);
         TEST_ASSERT_EQUAL_HEX16(FIRST_BIT << (i - LED_OFFSET), puerto_virtual);
         led_turn_off(i);

@@ -47,6 +47,19 @@ Para ejecutar las pruebas diseñadas en test_leds.c:
 ceedling        
 
 ```
+Para ejecutar el informa de covertura
+
+```
+ceedling clobber gcov:all utils:gcov
+
+```
+Para visualizar el informa de covertura
+
+```
+open ./build/artifacts/gcov/GcovCoverageResults.html
+
+```
+
 ## License
 
 This work is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.

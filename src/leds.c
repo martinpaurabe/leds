@@ -50,7 +50,7 @@ static uint16_t led_to_mask(int led) {
 /* === Public function implementation ========================================================== */
 
 void leds_init(uint16_t * puerto) {
-    puerto_virtual = puerto;
+    puerto_virtual  = puerto;
     *puerto_virtual = ALL_LEDS_OFF; // Mínimo código posible para resolver el problema actual
 }
 

@@ -187,4 +187,3 @@ void test_revisar_leds_correctamente_mapeado_en_memoria(void) {
 }
 
 /* === End of documentation ==================================================================== */
-0

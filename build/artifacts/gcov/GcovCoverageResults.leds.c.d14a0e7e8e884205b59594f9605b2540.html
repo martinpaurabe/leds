@@ -26,7 +26,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-08-12 19:00:22</td>
+      <td>2024-08-12 19:40:12</td>
     </tr>
   </table>
 </div>
@@ -438,7 +438,7 @@
       <td class="lineno"><a id="l47" href="#l47">47</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">10</td>
+      <td class="linecount coveredLine">41</td>
       <td class="src coveredLine"><span class="k">static</span><span class="w"> </span><span class="kt">uint16_t</span><span class="w"> </span><span class="nf">led_to_mask</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span></td>
     </tr>
 
@@ -446,7 +446,7 @@
       <td class="lineno"><a id="l48" href="#l48">48</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">10</td>
+      <td class="linecount coveredLine">41</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">FIRST_BIT</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">led</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">LED_OFFSET</span><span class="p">));</span><span class="w"></span></td>
     </tr>
 
@@ -487,7 +487,7 @@
       <td class="linebranch">
       </td>
       <td class="linecount coveredLine">10</td>
-      <td class="src coveredLine"><span class="w">    </span><span class="n">puerto_virtual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">puerto</span><span class="p">;</span><span class="w"></span></td>
+      <td class="src coveredLine"><span class="w">    </span><span class="n">puerto_virtual</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">puerto</span><span class="p">;</span><span class="w"></span></td>
     </tr>
 
     <tr class="source-line">
@@ -518,7 +518,7 @@
       <td class="lineno"><a id="l57" href="#l57">57</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">21</td>
       <td class="src coveredLine"><span class="kt">void</span><span class="w"> </span><span class="nf">led_turn_on</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Si la prueba la hago para un led detarminado podria llamar la fucnion</span></td>
     </tr>
 
@@ -534,7 +534,7 @@
       <td class="lineno"><a id="l59" href="#l59">59</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">21</td>
       <td class="src coveredLine"><span class="w">    </span><span class="o">*</span><span class="n">puerto_virtual</span><span class="w"> </span><span class="o">|=</span><span class="w"></span></td>
     </tr>
 
@@ -542,7 +542,7 @@
       <td class="lineno"><a id="l60" href="#l60">60</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">21</td>
       <td class="src coveredLine"><span class="w">        </span><span class="n">led_to_mask</span><span class="p">(</span><span class="n">led</span><span class="p">);</span><span class="w"> </span><span class="c1">// Inicialmente se tiene que hacer hardcodeado y a</span></td>
     </tr>
 
@@ -574,7 +574,7 @@
       <td class="lineno"><a id="l64" href="#l64">64</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">6</td>
+      <td class="linecount coveredLine">21</td>
       <td class="src coveredLine"><span class="p">}</span><span class="w"></span></td>
     </tr>
 
@@ -590,7 +590,7 @@
       <td class="lineno"><a id="l66" href="#l66">66</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">2</td>
+      <td class="linecount coveredLine">18</td>
       <td class="src coveredLine"><span class="kt">void</span><span class="w"> </span><span class="nf">led_turn_off</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span></td>
     </tr>
 
@@ -606,7 +606,7 @@
       <td class="lineno"><a id="l68" href="#l68">68</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">2</td>
+      <td class="linecount coveredLine">18</td>
       <td class="src coveredLine"><span class="w">    </span><span class="o">*</span><span class="n">puerto_virtual</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"></span></td>
     </tr>
 
@@ -614,7 +614,7 @@
       <td class="lineno"><a id="l69" href="#l69">69</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">2</td>
+      <td class="linecount coveredLine">18</td>
       <td class="src coveredLine"><span class="w">        </span><span class="o">~</span><span class="n">led_to_mask</span><span class="p">(</span><span class="n">led</span><span class="p">);</span><span class="w"> </span><span class="c1">// Inicialmente se tiene que hacer hardcodeado y</span></td>
     </tr>
 
@@ -646,7 +646,7 @@
       <td class="lineno"><a id="l73" href="#l73">73</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">2</td>
+      <td class="linecount coveredLine">18</td>
       <td class="src coveredLine"><span class="p">}</span><span class="w"></span></td>
     </tr>
 

@@ -7,6 +7,7 @@ on:
     branches: 
         [main]
 
+
 permissions:
   contents: read
   actions: read
@@ -15,7 +16,7 @@ permissions:
 
 jobs:
   verifications:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4

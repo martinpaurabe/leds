@@ -34,6 +34,7 @@ Created by https://www.toptal.com/developers/gitignore/api/macos,linux,visualstu
 *.exe
 *.out
 *.app
+*.elf
 
 ### Linux ###
 *~

@@ -1,6 +1,7 @@
 name: Validations
 
 on:
+  [push]
   pull_request:
     branches: [main]
 

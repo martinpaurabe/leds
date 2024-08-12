@@ -107,9 +107,4 @@ Temporary Items
 ### Local Settings ###
 
 # Generated and compiled root folder
-build/doc
-build/gcov
-build/logs
-build/obj
-build/temp
-build/test
+build

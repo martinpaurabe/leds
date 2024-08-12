@@ -24,6 +24,6 @@ clean:
 	@rm -r $(OUT_DIR)
 
 # parametro para generar la documentación de doxygen
-doc:
-	@mkdir -p $(OUT_DIR)   
-	@doxygen doxyfile  #ejecutar "doxywizard# para generar el doxyfile, con "open build/doc/html/index.html" se abre el resultado
+#doc:
+#	@mkdir -p $(OUT_DIR)   
+#	@doxygen doxyfile  #ejecutar "doxywizard# para generar el doxyfile, con "open build/doc/html/index.html" se abre el resultado

@@ -180,7 +180,8 @@ void test_revisar_leds_correctamente_mapeado_en_memoria(void) {
     int i = 1;
     for (; i <= CANT_LEDS; i++) {
         led_turn_on(i);
-        TEST_ASSERT_EQUAL_HEX16(FIRST_BIT << (i - LED_OFFSET), puerto_virtual);
+        TEST_ASSERT_EQUAL_HEX16(FIRST_BIT << (i - LED_OFFSET),
+                                puerto_virtual); // Corrijo el -1
         led_turn_off(i);
     }
 }

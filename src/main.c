@@ -51,7 +51,7 @@ SPDX-License-Identifier: MIT
  * @return int
  */
 int main(void) {
-    printf("Inicia el programa\n"); // no se corre
+    printf("Inicia el programa\n");
     return 0;
 }
 

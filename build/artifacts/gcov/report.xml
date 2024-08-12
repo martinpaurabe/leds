@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<testsuites tests="9" failures="0" time="0.022">
-  <testsuite name="test_leds" tests="9" failures="0" skipped="0" errors="0" time="0.022">
+<testsuites tests="9" failures="0" time="0.021">
+  <testsuite name="test_leds" tests="9" failures="0" skipped="0" errors="0" time="0.021">
     <testcase name="test_todos_los_leds_deben_arrancar_apagados" time="0.000"/>
     <testcase name="test_prender_un_solo_led" time="0.000"/>
     <testcase name="test_prender_y_apagar_led" time="0.000"/>
